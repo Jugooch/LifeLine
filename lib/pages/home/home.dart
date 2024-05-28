@@ -1,14 +1,14 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        middle: Text('Home'),
       ),
-      body: Center(
-        child: Text('Welcome to the Home Screen!'),
+      child: Center(
+        child: Text('Home Screen Content'),
       ),
     );
   }

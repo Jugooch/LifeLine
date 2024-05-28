@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lifeline/widgets/custom_scaffold.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'pages/login/login.dart';
-import 'pages/home/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return CircularProgressIndicator();
           } else if (snapshot.data == true) {
-            return Home();
+            return CustomTabScaffold();
           } else {
             return Login();
           }

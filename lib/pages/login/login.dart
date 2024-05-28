@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lifeline/widgets/custom_scaffold.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../home/home.dart';
 import 'signup.dart';
@@ -75,7 +76,7 @@ class _LoginScreenState extends State<Login> {
 
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => Home()),
+      MaterialPageRoute(builder: (context) => CustomTabScaffold()),
     );
   }
 }
