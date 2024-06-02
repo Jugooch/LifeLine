@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lifeline/pages/home/home.dart';
 import 'package:lifeline/pages/profile/profile.dart';
 import 'package:lifeline/pages/trips/trip.dart';
+import 'package:lifeline/services/trips_service.dart';
 
 
 class CustomTabScaffold extends StatelessWidget {
@@ -38,7 +39,7 @@ class CustomTabScaffold extends StatelessWidget {
           case 1:
             return CupertinoTabView(
               builder: (BuildContext context) {
-                return Trip();
+                return Trip(mode: "add", trip: TripModel());
               },
             );
           case 2:

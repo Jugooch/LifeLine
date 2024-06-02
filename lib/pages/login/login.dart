@@ -22,7 +22,7 @@ class _LoginScreenState extends State<Login> {
         title: Text('Login'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(32.0),
         child: Column(
           children: <Widget>[
             TextField(
