@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lifeline/services/trips_service.dart';
+import 'package:lifeline/styling.dart';
 import 'package:lifeline/widgets/your_trip_card.dart';
 
 class Home extends StatelessWidget {
@@ -21,82 +22,90 @@ class Home extends StatelessWidget {
     //This pairs well with the bottom TabBar that persists across pages
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text('LifeLine'),
+        middle: Text('LifeLine', style: AppStyles.header1),
+        backgroundColor: AppColors.primary,
       ),
       //SafeArea keeps the page content from overlapping with the navbar
       child: SafeArea(
-        //The material widget allows us to use TextField
-        child: Material(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.all(32),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Access Trip Section
-                  Text("Access a Trip"),
-                  SizedBox(height: 4),
-                  Divider(),
-                  SizedBox(height: 16),
-                  Text(
-                    "If you are an emergency contact and received a 6 digit code for another user’s trip, enter that here!",
-                  ),
-                  SizedBox(height: 16),
-                  TextField(
-                    controller: _accessCodeController,
-                    decoration: InputDecoration(
-                      labelText: 'Enter Code Here',
-                      border: OutlineInputBorder(),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.grey,
-                          width: 1.0,
+        // The GestureDetector will detect taps outside of the input fields
+        child: GestureDetector(
+          onTap: () {
+            FocusScope.of(context).unfocus();
+          },
+          //The material widget allows us to use TextField
+          child: Material(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.all(32),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Access Trip Section
+                    Text("Access a Trip", style: AppStyles.header2),
+                    SizedBox(height: 4),
+                    Divider(),
+                    SizedBox(height: 16),
+                    Text(
+                      "If you are an emergency contact and received a 6 digit code for another user’s trip, enter that here!", style: AppStyles.paragraph
+                    ),
+                    SizedBox(height: 16),
+                    TextField(
+                      controller: _accessCodeController,
+                      decoration: InputDecoration(
+                        labelText: 'Enter Code Here',
+                        border: OutlineInputBorder(),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: AppColors.inputPlaceholder,
+                            width: 1.0,
+                          ),
                         ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Theme.of(context).colorScheme.primary,
-                          width: 2.0,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Theme.of(context).colorScheme.primary,
+                            width: 2.0,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 16),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () => {},
-                      child: Text("Access"),
+                    SizedBox(height: 16),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () => {},
+                        child: Text("Access"),
+                        style: AppStyles.btnPrimary
+                      ),
                     ),
-                  ),
 
-                  SizedBox(height: 64),
+                    SizedBox(height: 64),
 
-                  // Your Trips Section
-                  Text("Your Trips"),
-                  SizedBox(height: 4),
-                  Divider(),
-                  SizedBox(height: 16),
-                  YourTripCard(
-                      trip: TripModel(
-                          title: title,
-                          date: date,
-                          ideal_time: ideal_time,
-                          probable_time: probable_time,
-                          panic_time: panic_time,
-                          destinations: destinations,
-                          imageUrl: imageUrl)),
-                  SizedBox(height: 16),
-                  YourTripCard(
-                      trip: TripModel(
-                          title: title,
-                          date: date,
-                          ideal_time: ideal_time,
-                          probable_time: probable_time,
-                          panic_time: panic_time,
-                          destinations: destinations,
-                          imageUrl: imageUrl)),
-                ],
+                    // Your Trips Section
+                    Text("Your Trips", style: AppStyles.header2),
+                    SizedBox(height: 4),
+                    Divider(),
+                    SizedBox(height: 16),
+                    YourTripCard(
+                        trip: TripModel(
+                            title: title,
+                            date: date,
+                            ideal_time: ideal_time,
+                            probable_time: probable_time,
+                            panic_time: panic_time,
+                            destinations: destinations,
+                            imageUrl: imageUrl)),
+                    SizedBox(height: 16),
+                    YourTripCard(
+                        trip: TripModel(
+                            title: title,
+                            date: date,
+                            ideal_time: ideal_time,
+                            probable_time: probable_time,
+                            panic_time: panic_time,
+                            destinations: destinations,
+                            imageUrl: imageUrl)),
+                  ],
+                ),
               ),
             ),
           ),

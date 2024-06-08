@@ -4,6 +4,7 @@ import 'package:lifeline/pages/home/home.dart';
 import 'package:lifeline/pages/profile/profile.dart';
 import 'package:lifeline/pages/trips/trip.dart';
 import 'package:lifeline/services/trips_service.dart';
+import 'package:lifeline/styling.dart';
 
 
 class CustomTabScaffold extends StatelessWidget {
@@ -13,6 +14,9 @@ class CustomTabScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
+        backgroundColor: AppColors.primary,
+        activeColor: AppColors.secondary,
+        inactiveColor: AppColors.lightPrimary,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.home),

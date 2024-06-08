@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lifeline/pages/trips/trip.dart';
 import 'package:lifeline/services/trips_service.dart';
+import 'package:lifeline/styling.dart';
 
 class YourTripCard extends StatelessWidget {
 
@@ -12,7 +13,7 @@ class YourTripCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Trip(mode: "view_yours", trip: trip)));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Trip(mode: "Your Trip", trip: trip)));
       },
       child: Container(
       height: 120,
@@ -29,7 +30,7 @@ class YourTripCard extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: Colors.black.withOpacity(0.4),
+              color: AppColors.overlay,
             ),
           ),
           Center(
@@ -39,11 +40,7 @@ class YourTripCard extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 child: Text(
                   trip.title ?? "Trip Title",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppStyles.header3
                 ),
               ),
             ),
